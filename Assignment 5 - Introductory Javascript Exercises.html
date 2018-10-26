@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title> Javascript Exercises </title>
+</head>
+<body>
+
+<script>
+
+/* Part 1 */
+var z;  alert(typeof z); // Result: "undefined". The variable z has no value assigned to it, making it undefined.
+alert(!!false); // Result: "false". The symbol !! means "not not", meaning that the result is not not false, or false.
+alert(7%2); // Result: 1. This codes for the remainder of 7/2, which is 1
+var name="Jim"; alert(name+" Smith"); // Result: "Jim Smith". This puts the value of "name" (Jim) with the string " Smith", resulting in Jim Smith
+var myNum="5"; alert(myNum+2); // Result: "52". This (alike the above) puts the string "5" with the number value of 2. Since "5" is a string and is not a number value, the two numbers are not added together
+
+/* Part 2 */
+// Differences between Java and Javascript: Java is compiled programming language which runs on a virtual machine. Javascript is an interpreted scripting language which runs directly on the browser. Java is class based inheritance, where it has class based relationships where properties are inherited by a certain class and so on. Javascript is prototype based inheritance where any object can inherit properties from other properties directly
+// Difference between + and ++: + is an operator that adds together values, while ++ is an operator that increments or adds one to a value
+// Differences between window.alert(), console.log(), and document.write(): window.alert() brings up a pop-up on the browser. console.log() writes messages to the console tab of a browser. document.write() directly writes messages to the document
+// Differences between =, ==, and ===: Using = will update the value of the variable instead of comparing them (ex: var x=5 (x = 7) output: x is now equal to 7 instead of 5). == is a less strict comparison between two values. It doesn't look at the data types and only just looks at the value (ex "5" and 5). It can take a string and say it is equal to a number value, which isn't true. === is more strict. It looks at both the data type and value. Therefore "5" is not equal to 5 in this case
+// Differences between while and do while: While loop only executes the action if the statement is true. Do while loop executes the action even if it fails to work
+
+/* Part 3 */
+var name=prompt("Enter your first name")
+var capName= name.toUpperCase();
+var i=0;
+do {
+	document.write("Welcome " + capName + "!" + "<br />");
+	i++;
+	}
+
+while(i<3)
+
+</script>
+
+</body>
+</html>
