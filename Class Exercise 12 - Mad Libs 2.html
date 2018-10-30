@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang = "en">
+
+<head>
+<title> Mad Libs Part 2 </title>
+</head>
+
+<body>
+
+<p> Enter an adjective: <input type="text" id="adjective1"></p>
+<p> Enter a second adjective: <input type="text" id="adjective2"></p>
+<p> Enter a noun: <input type="text" id="noun1"></p>
+<p> Enter a second noun: <input type="text" id="noun2"></p>
+<p> Enter a third noun: <input type="text" id="noun3"></p>
+
+<p><button id="btn"> I'm Done! </button></p>
+
+<p id="output"></p>
+
+<script>
+
+var adjective1 = document.getElementById("adjective1");
+var adjective2 = document.getElementById("adjective2");
+var noun1 = document.getElementById("noun1");
+var noun2 = document.getElementById("noun2");
+var noun3 = document.getElementById("noun3");
+
+function result() {
+	output.innerHTML = "<h2> Your Story: </h2> In the morning, I like to " + adjective1.value + ". After that, I eat " + noun1.value + ". I then go to the " + noun2.value + " to " + adjective2.value + " with my " + noun3.value + ".";
+}
+
+btn.onclick = result;
+	
+</script>
+</body>
+</html>
