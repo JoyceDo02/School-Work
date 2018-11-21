@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+<head>
+<title> Battleship </title>
+
+<style>
+
+body{
+	background-color: #e5b797;
+	background-image: url("images/background.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	text-shadow: 1px 1px #bffffa;
+	} <!-- to format background image and make text a bit more readable -->
+#userInput{
+	width: 100px;
+	}
+
+</style>
+
+</head>
+
+
+<body>
+
+<h1> PET LAUNCHER </h1>
+<h2> Launch The Pets Onto The Ship! </h2>
+<h4> Three ships are in desperate need of moral-support pets and it is your job to make sure they stay happy! </h4>
+<section class="tile"> </section>
+
+<br />
+
+<h3 id="count"> Guesses remaining: 8 </h3>
+
+<p><h4> Ahoy there! Guess a number from 1-20! </h4></p>
+
+<input type="text" id="userInput">
+
+<input type="button" id="btn" value="Let's Go!">
+
+<h3><p id="result"> </p></h3>
+
+<script>
+
+var splash = "<img src='images/splash.gif'>";
+var boat = "<img src='images/boat.gif'>";
+var start = "<img src='images/start.jpg'>";
+var userInput=document.getElementById("userInput");
+var btn=document.querySelector("#btn");
+var count=document.querySelector("#count");
+var result=document.querySelector("#result");
+var userOutput=document.querySelector("section");
+var counter=0;
+let hit=0 //?????
+var gameboard=[];
+
+
+for(i=0; i<20; i++){ //creates game-board by adding span elements to separate the "cells"
+gameboard[i] = "<span class='tile'>" + "<img width='55' height='55'" + start + "</span>"; //the images take up the space of the cells created by the span element
+userOutput.innerHTML+=gameboard[i]; //this puts the increments in the spot of the section
+}
+
+
+function mathRandom(){ //this randomly places the "ship" on the game-board
+return Math.floor(Math.random()*Math.floor(18))+1; //this returns that random number to another variable (to mathRandom which goes to ship)
+}
+
+
+let myTile=document.querySelectorAll("span");
+var ship=mathRandom();
+
+var shipLocation = new Array(); //this is the array that will determine where the rest of the ships are placed
+shipLocation[0]=ship;
+shipLocation[1]=ship+1;
+shipLocation[2]=ship+2;
+console.log(shipLocation[0]); //this helps visualize where the boats are just to make sure there are actually boats placed on the game-board
+console.log(shipLocation[1]);
+console.log(shipLocation[2]);
+
+
+function changeTile(){
+let myTile=document.querySelectorAll("span");
+counter++ //this counts the amount of times the function changeTile is called by the user/player
+
+for(x=1; x<=8; x++){ //this is the game loop which lets the player guess multiple times
+//this shows if the player got 1 out of the 3 possible guesses
+if(userInput.value-1==shipLocation[0] || userInput.value-1==shipLocation[1] || userInput.value-1==shipLocation[2]){ //the -1 is to "get rid" of the zero found in the game-board. When the player calls 1, instead of being the second item in the board, it'll be the first one
+myTile[userInput.value-1].innerHTML="<img width='55' height='55'" + boat; //this calls which specific cell that the player chose and replaces the starting image with the image dedicated for that event
+result.innerHTML="You Hit The Boat!";
+}
+else if((userInput.value-1)<0 || (userInput.value-1)>20){ //this makes sure that a player's inputs doesn't break the game
+result.innerHTML="You Missed The Boat!";
+userInput.value=0;
+}
+else{
+myTile[userInput.value-1].innerHTML="<img width='55' height='55'" + splash; //this shows if the player guessed anything other than the right spots, they missed
+result.innerHTML="You Missed The Boat!";
+}
+
+if(counter==0){ //this is the count-down for the player so they know how many guesses they have left
+count.innerHTML="Guesses remaining: " + (8-counter);
+}
+else if(counter==1){
+count.innerHTML="Guesses remaining: " + (8-counter);
+}
+else if(counter==2){
+count.innerHTML="Guesses remaining: " + (8-counter);
+}
+else if(counter==3){
+count.innerHTML="Guesses remaining: " + (8-counter);
+}
+else if(counter==4){
+count.innerHTML="Guesses remaining: " + (8-counter);
+}
+else if(counter==5){
+count.innerHTML="Guesses remaining: " + (8-counter);
+}
+else if(counter==6){
+count.innerHTML="Guesses remaining: " + (8-counter);
+}
+else if(counter==7){
+count.innerHTML="Guesses remaining: " + (8-counter);
+}
+else if(counter==8){ //this disables the button so that the player cannot guess more than 8 times in that round
+btn.disabled=true;
+count.innerHTML="You have no guesses left"
+}
+else{ //there must be an else at the end of an if else conditional but else indicates anything other than the specified conditions. Therefore having else end with a specified condition wouldn't be right
+count.innerHTML="Error";
+}
+}
+}
+
+btn.addEventListener("click", changeTile, false); //this event handler allows the function of changeTile to be called when the player clicks the button
+
+</script>
+
+</body>
+</html>
