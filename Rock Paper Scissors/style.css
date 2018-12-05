@@ -1,7 +1,7 @@
 #startScreen {background-color:lavender; width:750px; height:860px; display: block;}
 #playScreen {background-color:#ffe2ff; width:750px; height:860px; display: none;}
 #endScreen {background-color: lightblue; width:750px; height:860px; display: none;}
-div {text-align: center;}
+div {margin: 0 auto; text-align: center;}
 span {padding:2px;}
 h1 {color: #7aadff;}
 h2 {color: #a299f7;}
